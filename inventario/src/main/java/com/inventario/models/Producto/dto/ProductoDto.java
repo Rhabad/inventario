@@ -1,6 +1,5 @@
 package com.inventario.models.Producto.dto;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,13 +9,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class ProductoStockDto {
+public class ProductoDto {
     private Long id;
     private String nombreProducto;
     private int precio;
     private int precioOferta;
-    //stock
-    private int stock;
-    private int stockMinimo;
-    private int stockMaximo;
 }

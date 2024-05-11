@@ -1,5 +1,6 @@
 package com.inventario.models.Producto.dao;
 
+import com.inventario.models.Producto.dto.ProductoDto;
 import com.inventario.models.Producto.dto.ProductoStockDto;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -21,7 +22,9 @@ public class ProductoStockDao {
 
 
     public List<Map<String, Object>> findAllProductoStock() {
-        String sql = "SELECT * FROM producto";
+        String sql = "SELECT p.*, s.stock, s.stock_minimo, s.stock_maximo\n" +
+                "FROM producto p\n" +
+                "    LEFT JOIN stock s ON p.id = s.producto_id";
         return jdbcTemplate.queryForList(sql, params);
     }
 
@@ -42,9 +45,9 @@ public class ProductoStockDao {
                     "FROM producto\n" +
                     "ORDER BY id DESC\n" +
                     "LIMIT 1;";
-            ProductoStockDto productoId = jdbcTemplate.queryForObject(lastIdProducto, params,
+            ProductoDto productoId = jdbcTemplate.queryForObject(lastIdProducto, params,
                     (rs, rowNum) -> {
-                        ProductoStockDto p = ProductoStockDto.builder()
+                        ProductoDto p = ProductoDto.builder()
                                 .id(rs.getLong("id"))
                                 .nombreProducto(rs.getString("nombre_producto"))
                                 .precio(rs.getInt("precio"))
