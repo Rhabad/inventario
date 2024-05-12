@@ -87,3 +87,11 @@ INSERT INTO
 VALUES (2, 1);
 
 INSERT INTO inventario (nombre_inventario) VALUES ("inventario 3");
+
+-- UPDATE INVENTARIO
+
+UPDATE inventario
+SET
+    nombre_inventario = 'Sucursal tu mama'
+WHERE
+    id_inventario = 2;

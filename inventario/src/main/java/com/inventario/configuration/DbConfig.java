@@ -19,13 +19,8 @@ public class DbConfig {
     }
 
     @Bean
-    public NamedParameterJdbcTemplate namedParameterJdbcTemplate(DataSource dataSource){
+    public NamedParameterJdbcTemplate namedParameterJdbcTemplate(DataSource dataSource) {
         return new NamedParameterJdbcTemplate(dataSource);
-    }
-
-    @Bean
-    public MapSqlParameterSource parameterSource(){
-        return new MapSqlParameterSource();
     }
 
 }

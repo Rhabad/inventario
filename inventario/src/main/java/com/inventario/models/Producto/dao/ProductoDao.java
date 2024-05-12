@@ -1,7 +1,6 @@
 package com.inventario.models.Producto.dao;
 
 import com.inventario.models.Producto.dto.ProductoDto;
-import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;

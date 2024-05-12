@@ -25,6 +25,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     }
 
     // manejando recurso no encontrado
+    @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<ErrorDetalle> manejandoResourceNotFound(
             ResourceNotFoundException ex, WebRequest webRequest
     ) {
@@ -34,5 +35,17 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
                 .detalle(webRequest.getDescription(false))
                 .build();
         return new ResponseEntity<>(errorDetalle, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(NullPointerException.class)
+    public ResponseEntity<ErrorDetalle> manejandoNullPointerException(
+            NullPointerException ex, WebRequest webRequest
+    ) {
+        ErrorDetalle errorDetalle = ErrorDetalle.builder()
+                .marcaDeTiempo(new Date())
+                .mensaje(ex.getMessage())
+                .detalle(webRequest.getDescription(false))
+                .build();
+        return new ResponseEntity<>(errorDetalle, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }
