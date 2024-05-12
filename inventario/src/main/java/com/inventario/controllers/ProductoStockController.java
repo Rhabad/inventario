@@ -1,9 +1,7 @@
 package com.inventario.controllers;
 
-import com.inventario.models.Producto.dto.ProductoDto;
 import com.inventario.models.Producto.dto.ProductoStockDto;
-import com.inventario.models.Stock.dto.StockDto;
-import com.inventario.services.ProductoService;
+import com.inventario.services.IProductoService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,9 +10,9 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api")
 public class ProductoStockController {
 
-    ProductoService proService;
+    IProductoService proService;
 
-    public ProductoStockController(ProductoService proService) {
+    public ProductoStockController(IProductoService proService) {
         this.proService = proService;
     }
 

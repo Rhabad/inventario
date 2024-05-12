@@ -1,4 +1,4 @@
-package com.inventario.services;
+package com.inventario.services.impl;
 
 import com.inventario.models.Producto.dao.ProductoDao;
 import com.inventario.models.Producto.dao.ProductoStockDao;
@@ -8,6 +8,7 @@ import com.inventario.models.Stock.dao.StockDao;
 import com.inventario.models.Stock.dto.StockDto;
 import com.inventario.models.inventario.dao.InventarioProductoDao;
 import com.inventario.models.inventario.dto.InventarioProductoDto;
+import com.inventario.services.IProductoService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,7 +17,7 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-public class ProductoService {
+public class ProductoService implements IProductoService {
 
     private final ProductoStockDao prodStockDao;
     private final ProductoDao productoDao;

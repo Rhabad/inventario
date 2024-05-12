@@ -63,7 +63,7 @@ INSERT INTO
         stock_maximo,
         producto_id
     )
-VALUES (20, 3, 50, 32);
+VALUES (20, 3, 50, 1);
 
 INSERT INTO
     inventario (nombre_inventario)
@@ -71,7 +71,7 @@ VALUES ("Sucursal tu hermana");
 
 INSERT INTO
     inventario_producto (inventario_id, producto_id)
-VALUES (1, 32);
+VALUES (1, 1);
 
 -- ULTIMO EN SER INSERTADO; EL ID
 SELECT * FROM producto WHERE id = LAST_INSERT_ID();
