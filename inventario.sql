@@ -63,7 +63,7 @@ INSERT INTO
         stock_maximo,
         producto_id
     )
-VALUES (20, 3, 50, 1);
+VALUES (20, 3, 50, 32);
 
 INSERT INTO
     inventario (nombre_inventario)
@@ -71,7 +71,7 @@ VALUES ("Sucursal tu hermana");
 
 INSERT INTO
     inventario_producto (inventario_id, producto_id)
-VALUES (1, 1);
+VALUES (1, 32);
 
 -- ULTIMO EN SER INSERTADO; EL ID
 SELECT * FROM producto WHERE id = LAST_INSERT_ID();
@@ -81,3 +81,9 @@ SELECT * FROM producto ORDER BY id DESC LIMIT 1;
 SELECT p.*, s.stock, s.stock_minimo, s.stock_maximo
 FROM producto p
     LEFT JOIN stock s ON p.id = s.producto_id;
+
+INSERT INTO
+    inventario_producto (inventario_id, producto_id)
+VALUES (2, 1);
+
+INSERT INTO inventario (nombre_inventario) VALUES ("inventario 3");
