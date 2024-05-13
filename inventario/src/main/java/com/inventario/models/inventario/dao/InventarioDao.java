@@ -21,7 +21,7 @@ public class InventarioDao {
         String sql = "INSERT INTO inventario (nombre_inventario) VALUES (:nombre_inventario)";
 
         MapSqlParameterSource params = new MapSqlParameterSource();
-        params.addValue("nombre_variable", inventarioDto.getNombreInventario());
+        params.addValue("nombre_inventario", inventarioDto.getNombreInventario());
         jdbcTemplate.update(sql, params);
     }
 
@@ -43,4 +43,13 @@ public class InventarioDao {
                 .addValue("id_inventario", inventarioDto.getIdInventario())
         );
     }
+
+    public void deleteInventario(Long id) {
+        String sql = "DELETE FROM inventario WHERE id_inventario = :id_inventario";
+        jdbcTemplate.update(sql, new MapSqlParameterSource()
+                .addValue("id_inventario", id)
+        );
+    }
+
+    
 }

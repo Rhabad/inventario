@@ -20,7 +20,7 @@ CREATE TABLE stock (
     stock_minimo INT NOT NULL,
     stock_maximo INT NOT NULL,
     producto_id BIGINT NOT NULL UNIQUE,
-    Foreign Key (producto_id) REFERENCES producto (id)
+    Foreign Key (producto_id) REFERENCES producto (id) ON DELETE CASCADE
 );
 
 CREATE TABLE inventario (
@@ -32,8 +32,8 @@ CREATE TABLE inventario_producto (
     id BIGINT PRIMARY KEY AUTO_INCREMENT,
     inventario_id BIGINT,
     producto_id BIGINT,
-    Foreign Key (inventario_id) REFERENCES inventario (id_inventario),
-    Foreign Key (producto_id) REFERENCES producto (id)
+    Foreign Key (inventario_id) REFERENCES inventario (id_inventario) ON DELETE CASCADE,
+    Foreign Key (producto_id) REFERENCES producto (id) ON DELETE CASCADE
 );
 
 -- COSAS UTILES
@@ -95,3 +95,5 @@ SET
     nombre_inventario = 'Sucursal tu mama'
 WHERE
     id_inventario = 2;
+
+DELETE FROM producto WHERE id = 1;

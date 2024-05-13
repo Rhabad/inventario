@@ -50,4 +50,12 @@ public class InventarioService implements IInventarioService {
 
     }
 
+    @Override
+    public void deleteInventario(Long id) {
+        if (id != null) {
+            inventarioDao.deleteInventario(id);
+        } else {
+            throw new ResourceNotFoundException("Inventario", "id_inventario", id);
+        }
+    }
 }

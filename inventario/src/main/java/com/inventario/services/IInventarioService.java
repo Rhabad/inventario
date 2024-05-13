@@ -10,4 +10,6 @@ public interface IInventarioService {
     void createInventario(InventarioDto inventarioDto);
 
     void updateInventario(InventarioDto inventarioDto);
+
+    void deleteInventario(Long id);
 }
