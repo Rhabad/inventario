@@ -28,4 +28,10 @@ public class ProductoStockController {
         proService.crearProductoStock(prodStockDto);
         return new ResponseEntity<>("Se creo la wea", HttpStatus.OK);
     }
+
+    @DeleteMapping("/producto/{id}")
+    public ResponseEntity<String> deleteProductoStockInventario(@PathVariable Long id) {
+        proService.deleteProductoStock(id);
+        return new ResponseEntity<>("se elimino la wea", HttpStatus.OK);
+    }
 }

@@ -1,5 +1,6 @@
 package com.inventario.services.impl;
 
+import com.inventario.exceptions.ResourceNotFoundException;
 import com.inventario.models.Producto.dao.ProductoDao;
 import com.inventario.models.Producto.dao.ProductoStockDao;
 import com.inventario.models.Producto.dto.ProductoDto;
@@ -76,5 +77,16 @@ public class ProductoService implements IProductoService {
                 .inventarioId(prodStockDto.getIdInventario())
                 .productoId(productoDao.lastProducto().getId())
                 .build());
+    }
+
+    @Override
+    public void deleteProductoStock(Long id) {
+        if (id != null) {
+            prodStockDao.deleteProductoStock(id);
+        } else {
+            throw new ResourceNotFoundException("Producto", "id", id);
+        }
+
+
     }
 }

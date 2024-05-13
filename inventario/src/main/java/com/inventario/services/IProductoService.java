@@ -9,4 +9,6 @@ public interface IProductoService {
     List<ProductoStockDto> findAllProductos();
 
     void crearProductoStock(ProductoStockDto prodStockDto);
+
+    void deleteProductoStock(Long id);
 }

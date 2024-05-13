@@ -25,6 +25,10 @@ public class ProductoStockDao {
     }
 
     public void deleteProductoStock(Long id) {
-        String sql = "";
+        String sql = "DELETE FROM producto WHERE id = :id";
+
+        jdbcTemplate.update(sql, new MapSqlParameterSource()
+                .addValue("id", id)
+        );
     }
 }
