@@ -37,6 +37,7 @@ public class ProductoService implements IProductoService {
         this.invProdDao = invProdDao;
     }
 
+    @Override
     public List<ProductoStockDto> findAllProductos() {
         List<Map<String, Object>> productos = prodStockDao.findAllProductoStock();
 
@@ -59,6 +60,7 @@ public class ProductoService implements IProductoService {
 
 
     @Transactional
+    @Override
     public void crearProductoStock(ProductoStockDto prodStockDto) {
         productoDao.createProducto(ProductoDto.builder()
                 .nombreProducto(prodStockDto.getNombreProducto())
@@ -88,5 +90,23 @@ public class ProductoService implements IProductoService {
         }
 
 
+    }
+
+    @Transactional
+    @Override
+    public void updateProductoStock(ProductoStockDto productoStockDto) {
+        productoDao.updateProducto(ProductoStockDto.builder()
+                .nombreProducto(productoStockDto.getNombreProducto())
+                .precio(productoStockDto.getPrecio())
+                .precioOferta(productoStockDto.getPrecioOferta())
+                .id(productoStockDto.getId())
+                .build());
+
+        stockDao.updateStock(ProductoStockDto.builder()
+                .stock(productoStockDto.getStock())
+                .stockMinimo(productoStockDto.getStockMinimo())
+                .stockMaximo(productoStockDto.getStockMaximo())
+                .id(productoStockDto.getId())
+                .build());
     }
 }

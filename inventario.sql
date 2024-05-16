@@ -97,3 +97,21 @@ WHERE
     id_inventario = 2;
 
 DELETE FROM producto WHERE id = 1;
+
+-- UPDATE PRODUCTO STOCK
+
+UPDATE producto
+SET
+    nombre_producto = "hola",
+    precio = 1,
+    precio_oferta = 0
+WHERE
+    id = 4;
+
+UPDATE stock
+SET
+    stock = 11,
+    stock_minimo = 20,
+    stock_maximo = 30
+WHERE
+    producto_id = 4;

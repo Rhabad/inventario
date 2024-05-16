@@ -11,4 +11,6 @@ public interface IProductoService {
     void crearProductoStock(ProductoStockDto prodStockDto);
 
     void deleteProductoStock(Long id);
+
+    void updateProductoStock(ProductoStockDto productoStockDto);
 }

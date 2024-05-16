@@ -34,4 +34,11 @@ public class ProductoStockController {
         proService.deleteProductoStock(id);
         return new ResponseEntity<>("se elimino la wea", HttpStatus.OK);
     }
+
+    @PutMapping("/producto")
+    public ResponseEntity<String> updateProductoStock(@RequestBody ProductoStockDto productoStockDto) {
+        proService.updateProductoStock(productoStockDto);
+
+        return new ResponseEntity<>("se actualzo la wea", HttpStatus.OK);
+    }
 }
